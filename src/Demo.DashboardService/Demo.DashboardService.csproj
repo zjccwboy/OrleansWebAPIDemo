@@ -21,5 +21,4 @@
     <ProjectReference Include="..\Demo.IBusiness\Demo.IBusiness.csproj" />
     <ProjectReference Include="..\OrleansWebCore\OrleansWebCore.csproj" />
   </ItemGroup>
-
 </Project>
