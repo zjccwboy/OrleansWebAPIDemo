@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="OrleansDashboardConfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="OrleansDashboardConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Business\Demo.Business.csproj" />
+    <ProjectReference Include="..\Demo.IBusiness\Demo.IBusiness.csproj" />
+    <ProjectReference Include="..\OrleansWebCore\OrleansWebCore.csproj" />
+  </ItemGroup>
+
+</Project>

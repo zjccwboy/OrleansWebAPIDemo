@@ -1,0 +1,18 @@
+{
+  "Username": "admin",
+  "Password": "123456",
+  "Port": 8080,
+  "UpdateIntervalMs": 2000,
+  "ClusterId": "dev",
+  "ServiceId": "DemoService",
+  "SiloPort": 20005,
+  "GatewayPort": 30005,
+  "OrleansStorage": "OrleansStorage",
+  "ClusterDatabase": {
+    "DataSource": "127.0.0.1",
+    "InitialCatalog": "OrleansWebCore",
+    "User": "sa",
+    "Password": "123456",
+    "ConnectionString": "Data Source=127.0.0.1;Initial Catalog=OrleansWebCore;Persist Security Info=True;User ID=sa;Password=123456"
+  }
+}

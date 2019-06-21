@@ -1,0 +1,13 @@
+{
+  "ClusterId": "dev",
+  "ServiceId": "DemoService",
+  "SiloPort": 20001,
+  "GatewayPort": 30002,
+  "OrleansStorage": "OrleansStorage",
+  "ClusterDatabase": {
+    "DataSource": "127.0.0.1",
+    "InitialCatalog": "OrleansWebCore",
+    "User": "sa",
+    "Password": "123456"
+  }
+}
