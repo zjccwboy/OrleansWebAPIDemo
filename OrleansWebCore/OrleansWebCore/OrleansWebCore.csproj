@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.Orleans.Core" Version="2.3.5" />
     <PackageReference Include="Microsoft.Orleans.OrleansGoogleUtils" Version="2.3.5" />
     <PackageReference Include="Microsoft.Orleans.Persistence.AdoNet" Version="2.3.5" />
+    <PackageReference Include="Microsoft.Orleans.Serialization.Bond" Version="2.3.5" />
     <PackageReference Include="Microsoft.Orleans.Server" Version="2.3.5" />
     <PackageReference Include="OrleansDashboard" Version="2.3.5" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
