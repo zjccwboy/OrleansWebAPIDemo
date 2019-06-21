@@ -2,7 +2,7 @@
   "ClusterId": "dev",
   "ServiceId": "DemoService",
   "SiloPort": 20001,
-  "GatewayPort": 30002,
+  "GatewayPort": 30001,
   "OrleansStorage": "OrleansStorage",
   "ClusterDatabase": {
     "DataSource": "127.0.0.1",

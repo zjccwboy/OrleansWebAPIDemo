@@ -38,27 +38,9 @@ namespace Demo.Service
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //OrleansSoliHostConfiguration configure = new OrleansSoliHostConfiguration
-            //{
-            //    ClusterId = "dev",
-            //    ServiceId = "DemoService",
-            //    SiloPort = 20001,
-            //    GatewayPort = 30002,
-            //    OrleansStorage = "OrleansStorage",
-            //    ClusterDatabase = new DatabaseConfiguration
-            //    {
-            //        DataSource = "127.0.0.1",
-            //        InitialCatalog = "OrleansWebCore",
-            //        User = "sa",
-            //        Password = "123456",
-            //    },
-            //};
-
-            //Console.Write(Newtonsoft.Json.JsonConvert.SerializeObject(configure, Newtonsoft.Json.Formatting.Indented));
-
             var configure = OrleansConfigReader.ReadSiloConfig();
-            var server = OrleansSiloStartup.StartOrleansServer(configure, new Type[] { typeof(UserServer)}, services);
-            var client = OrleansSiloStartup.StartOrleansClient(configure, new Type[] { typeof(IUser)}, services);
+            OrleansSiloStartup.StartOrleansServer(configure, new Type[] { typeof(UserServer)}, services);
+            OrleansSiloStartup.StartOrleansClient(configure, new Type[] { typeof(IUser)}, services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

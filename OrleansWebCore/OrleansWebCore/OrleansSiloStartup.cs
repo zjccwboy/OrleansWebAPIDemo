@@ -81,6 +81,59 @@ namespace OrleansWebCore
         }
 
         /// <summary>
+        /// 启动Orleans仪表盘服务
+        /// </summary>
+        /// <param name="configure"></param>
+        /// <returns></returns>
+        public static ISiloHost StartDashboardServer(DashboardConfiguration configure)
+        {
+            var gatewayPort = configure.GatewayPort;
+            var siloPort = configure.SiloPort;
+
+            var builder = new SiloHostBuilder()
+            // Grain State
+            .AddAdoNetGrainStorage(configure.OrleansStorage, options =>
+            {
+                options.Invariant = Invariant;
+                options.ConnectionString = configure.ClusterDatabase.ConnectionString;
+                options.UseJsonFormat = true;
+            })
+            // Membership
+            .UseAdoNetClustering(options =>
+            {
+                options.Invariant = Invariant;
+                options.ConnectionString = configure.ClusterDatabase.ConnectionString;
+            })
+            .UseDashboard(options =>
+            {
+                options.Username = configure.Username;
+                options.Password = configure.Password;
+                options.HostSelf = true;
+                options.HideTrace = false;
+                options.Port = configure.Port;
+                options.CounterUpdateIntervalMs = configure.UpdateIntervalMs;
+            })
+            .Configure<ClusterOptions>(options =>
+            {
+                options.ClusterId = configure.ClusterId;
+                options.ServiceId = configure.ServiceId;
+            })
+            .Configure<SerializationProviderOptions>(options =>
+            {
+                options.SerializationProviders.Add(typeof(ProtobufSerializer).GetTypeInfo());
+                options.FallbackSerializationProvider = typeof(ProtobufSerializer).GetTypeInfo();
+            })
+            .ConfigureEndpoints(siloPort, gatewayPort)
+            .ConfigureLogging(log => log.SetMinimumLevel(LogLevel.Warning).AddConsole());
+
+            var host = builder.Build();
+            host.StartAsync().Wait();
+
+            Console.WriteLine("Orleans仪表盘已经启动");
+            return host;
+        }
+
+        /// <summary>
         /// 启动Orleans客户端服务
         /// </summary>
         /// <param name="configure"></param>
