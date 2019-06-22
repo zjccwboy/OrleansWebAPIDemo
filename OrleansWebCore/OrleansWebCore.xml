@@ -111,27 +111,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:OrleansWebCore.OrleansDashboardStartup">
-            <summary>
-            Orleans Dashboard宿主启动管理类
-            </summary>
-        </member>
-        <member name="M:OrleansWebCore.OrleansDashboardStartup.StartDashboardServer(OrleansWebCore.Configuration.DashboardConfiguration,System.Type[])">
-            <summary>
-            启动Orleans仪表盘服务
-            </summary>
-            <param name="configure"></param>
-            <param name="applicationPartTypes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OrleansWebCore.OrleansDashboardStartup.StartOrleansClient(OrleansWebCore.Configuration.DashboardConfiguration,System.Type[])">
-            <summary>
-            启动Orleans客户端服务
-            </summary>
-            <param name="configure"></param>
-            <param name="applicationPartTypes"></param>
-            <returns></returns>
-        </member>
         <member name="T:OrleansWebCore.OrleansSiloStartup">
             <summary>
             Orleans宿主启动管理类
@@ -144,6 +123,14 @@
             <param name="configure"></param>
             <param name="applicationPartTypes"></param>
             <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OrleansWebCore.OrleansSiloStartup.StartDashboardServer(OrleansWebCore.Configuration.DashboardConfiguration,System.Type[])">
+            <summary>
+            启动Orleans仪表盘服务
+            </summary>
+            <param name="configure"></param>
+            <param name="applicationPartTypes"></param>
             <returns></returns>
         </member>
         <member name="M:OrleansWebCore.OrleansSiloStartup.StartOrleansClient(OrleansWebCore.Configuration.OrleansSoliHostConfiguration,System.Type[],Microsoft.Extensions.DependencyInjection.IServiceCollection)">

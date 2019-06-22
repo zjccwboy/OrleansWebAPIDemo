@@ -84,8 +84,9 @@ namespace OrleansWebCore
         /// 启动Orleans仪表盘服务
         /// </summary>
         /// <param name="configure"></param>
+        /// <param name="applicationPartTypes"></param>
         /// <returns></returns>
-        public static ISiloHost StartDashboardServer(DashboardConfiguration configure)
+        public static ISiloHost StartDashboardServer(DashboardConfiguration configure, Type[] applicationPartTypes)
         {
             var gatewayPort = configure.GatewayPort;
             var siloPort = configure.SiloPort;
@@ -124,6 +125,17 @@ namespace OrleansWebCore
                 options.FallbackSerializationProvider = typeof(ProtobufSerializer).GetTypeInfo();
             })
             .ConfigureEndpoints(siloPort, gatewayPort)
+            .ConfigureApplicationParts(parts =>
+            {
+                if (applicationPartTypes != null)
+                {
+                    foreach (var type in applicationPartTypes)
+                    {
+                        parts.AddApplicationPart(type.Assembly).WithReferences();
+                    }
+                }
+            })
+            .UseInMemoryReminderService()
             .ConfigureLogging(log => log.SetMinimumLevel(LogLevel.Warning).AddConsole());
 
             var host = builder.Build();
@@ -181,7 +193,8 @@ namespace OrleansWebCore
 
             Console.WriteLine("Orleans客户端已经启动");
 
-            services.AddSingleton(client);
+            if(services != null)
+                services.AddSingleton(client);
 
             return client;
         }
