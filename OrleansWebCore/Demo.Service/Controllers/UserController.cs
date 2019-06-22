@@ -25,6 +25,11 @@ namespace Demo.Service.Controllers
             this.OrleansClient = client;
         }
 
+        /// <summary>
+        /// 获取用户名
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<string>> GetUserName(long userId)
         {
@@ -33,28 +38,16 @@ namespace Demo.Service.Controllers
             return await service.GetUserName(userId);
         }
 
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="request">请求信息</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<GetUserInfo_Response>> GetUserInfo(GetUserInfo_Request request)
         {
             var service = this.OrleansClient.GetGrain<IUser>(request.UserId);
-            var businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId});
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
-            businessInfo = await service.GetUserInfo(new GetUserInfo_In { UserId = request.UserId });
+            var businessInfo = await service.GetUserInfo(new GetUserInfo_Input { UserId = request.UserId});
             return new GetUserInfo_Response
             {
                 UserId = businessInfo.UserId,

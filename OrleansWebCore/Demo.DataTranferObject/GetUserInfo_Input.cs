@@ -5,7 +5,7 @@ namespace Demo.DataTranferObject
 {
     [Schema]
     [Serializable]
-    public class GetUserInfo_In
+    public class GetUserInfo_Input
     {
         public long UserId { get; set; }
     }

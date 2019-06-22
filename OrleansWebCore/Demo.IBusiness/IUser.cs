@@ -9,6 +9,6 @@ namespace Demo.IBusiness
     {
         Task<string> GetUserName(long userId);
 
-        Task<GetUserInfo_Out> GetUserInfo(GetUserInfo_In input);
+        Task<GetUserInfo_Output> GetUserInfo(GetUserInfo_Input input);
     }
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Demo.Service</name>
+    </assembly>
+    <members>
+        <member name="M:Demo.Service.Controllers.UserController.GetUserName(System.Int64)">
+            <summary>
+            获取用户名
+            </summary>
+            <param name="userId">用户Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Demo.Service.Controllers.UserController.GetUserInfo(Demo.Service.ViewModel.GetUserInfo_Request)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="request">请求信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Demo.Service.ViewModel.GetUserInfo_Request">
+            <summary>
+            获取用户信息请求内容
+            </summary>
+        </member>
+        <member name="P:Demo.Service.ViewModel.GetUserInfo_Request.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="T:Demo.Service.ViewModel.GetUserInfo_Response">
+            <summary>
+            获取用户信息返回内容
+            </summary>
+        </member>
+        <member name="P:Demo.Service.ViewModel.GetUserInfo_Response.UserId">
+            <summary>
+            用户 Id
+            </summary>
+        </member>
+        <member name="P:Demo.Service.ViewModel.GetUserInfo_Response.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Demo.Service.ViewModel.GetUserInfo_Response.NikeName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Demo.Service.ViewModel.GetUserInfo_Response.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+    </members>
+</doc>

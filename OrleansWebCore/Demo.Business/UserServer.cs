@@ -21,12 +21,12 @@ namespace Demo.Business
             return userInfo.UserName;
         }
 
-        public async Task<GetUserInfo_Out> GetUserInfo(GetUserInfo_In input)
+        public async Task<GetUserInfo_Output> GetUserInfo(GetUserInfo_Input input)
         {
             Console.WriteLine($"GetUserInfo-> Input:{Newtonsoft.Json.JsonConvert.SerializeObject(input)} ThreadId:{Thread.CurrentThread.ManagedThreadId}");
             var repository = new UserRepository();
             var userInfo = await repository.GetUserInfo(input.UserId);
-            return new GetUserInfo_Out
+            return new GetUserInfo_Output
             {
                 UserId = userInfo.UserId,
                 UserName = userInfo.UserName,
